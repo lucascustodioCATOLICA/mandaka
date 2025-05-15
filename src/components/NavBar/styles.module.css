@@ -1,12 +1,14 @@
+.navbar_container {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
 .navbar {
   padding-left: 22px;
   padding-right: 22px;
   padding-bottom: 22px;
   box-sizing: border-box;
-
-  position: fixed;
-  top: 0px;
-  width: 100%;
 
   backdrop-filter: blur(400px);
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),

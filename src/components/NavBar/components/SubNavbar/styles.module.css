@@ -1,0 +1,29 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+
+  overflow-x: scroll;
+
+  padding-right: 24px;
+  padding-left: 24px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+
+  font-size: 14px;
+  color: rgba(255, 255, 255, 1);
+}
+
+.row::-webkit-scrollbar {
+  display: none;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 2.5px;
+  background-color: rgba(228, 228, 231, 1);
+  margin: auto;
+
+  margin-top: 8px;
+}

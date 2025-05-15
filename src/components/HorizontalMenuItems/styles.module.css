@@ -5,6 +5,9 @@
 
   overflow-x: scroll;
   padding-bottom: 32px;
+
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .list::-webkit-scrollbar {

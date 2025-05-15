@@ -1,0 +1,51 @@
+.container {
+  padding-left: 24px;
+  padding-right: 24px;
+  margin-top: 24px;
+
+  color: rgba(255, 255, 255, 1);
+}
+
+.title {
+  color: rgba(255, 255, 255, 1);
+  font-size: 16px;
+
+  margin-bottom: 12px;
+}
+
+.menu_item {
+  padding: 20px 12px;
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.food_image {
+  height: 140px;
+}
+
+.right {
+  margin-left: 18px;
+  text-align: center;
+}
+
+.description_container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 2.5px;
+  background-color: rgba(228, 228, 231, 1);
+  margin: auto;
+
+  margin-top: 8px;
+}

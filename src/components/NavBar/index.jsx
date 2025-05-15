@@ -1,8 +1,9 @@
 import "./styles.css";
 
-import Logo from "../../assets/icons/logo.svg";
-import Menu from "../../assets/icons/menu.svg";
-import Bell from "../../assets/icons/bell.svg";
+import Logo from "../../assets/icons/logo.svg?react";
+import Menu from "../../assets/icons/menu.svg?react";
+import Bell from "../../assets/icons/bell.svg?react";
+import Search from "../../assets/icons/search.svg?react";
 
 const Navbar = () => {
   return (
@@ -10,16 +11,17 @@ const Navbar = () => {
       <div className="navbar">
         <div className="navbar-top">
           <div className="left">
-            <img className="img" src={Menu} alt="menu" />
+            <Menu />
           </div>
           <div className="title">
-            <img className="img" src={Logo} alt="Logo" />
+            <Logo />
           </div>
           <div className="right">
-            <img className="img" src={Bell} alt="bell" />
+            <Bell />
           </div>
         </div>
-        <div>
+        <div className="navbar-bottom">
+          <Search className="icon" />
           <input
             className="input"
             type="text"

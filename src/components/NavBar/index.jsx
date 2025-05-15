@@ -1,33 +1,31 @@
-import "./styles.css";
-
 import Logo from "../../assets/icons/logo.svg?react";
 import Menu from "../../assets/icons/menu.svg?react";
 import Bell from "../../assets/icons/bell.svg?react";
 import Search from "../../assets/icons/search.svg?react";
 
+import styles from "./styles.module.css";
+
 const Navbar = () => {
   return (
-    <div className="margin">
-      <div className="navbar">
-        <div className="navbar-top">
-          <div className="left">
+    <div className={styles.margin}>
+      <div className={styles.navbar}>
+        <div className={styles.navbar_top}>
+          <div className={styles.left}>
             <Menu />
           </div>
-          <div className="title">
+          <div className={styles.title}>
             <Logo />
           </div>
-          <div className="right">
+          <div className={styles.right}>
             <Bell />
           </div>
         </div>
-        <div className="navbar-bottom">
-          <Search className="icon" />
+        <div className={styles.navbar_bottom}>
+          <Search className={styles.icon} />
           <input
-            className="input"
+            className={styles.input}
             type="text"
             placeholder="Buscar produtos"
-            name=""
-            id=""
           />
         </div>
       </div>

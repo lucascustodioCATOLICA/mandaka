@@ -17,7 +17,7 @@
   height: 140px;
 }
 
-.navbar-top {
+.navbar_top {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -50,7 +50,7 @@
   color: white;
 }
 
-.navbar-bottom {
+.navbar_bottom {
   position: relative;
 }
 

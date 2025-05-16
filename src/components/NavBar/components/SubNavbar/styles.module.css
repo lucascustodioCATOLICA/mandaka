@@ -24,6 +24,10 @@
   display: none;
 }
 
+.category {
+  cursor: pointer;
+}
+
 .dot {
   width: 5px;
   height: 5px;

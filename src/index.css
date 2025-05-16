@@ -24,7 +24,8 @@ body::before {
   z-index: -1;
 }
 
-div {
+div,
+p {
   font-family: "Poppins";
   font-weight: 400;
   line-height: 12px;

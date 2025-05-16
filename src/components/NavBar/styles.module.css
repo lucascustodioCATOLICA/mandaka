@@ -27,6 +27,7 @@
 }
 
 .left {
+  cursor: pointer;
   width: 35px;
   height: 35px;
   background-color: rgba(255, 255, 255, 0.1);
@@ -38,6 +39,7 @@
 }
 
 .right {
+  cursor: pointer;
   width: 35px;
   height: 35px;
   background-color: rgba(255, 255, 255, 0.1);
@@ -49,6 +51,7 @@
 }
 
 .title {
+  cursor: pointer;
   color: white;
 }
 

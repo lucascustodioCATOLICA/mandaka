@@ -15,6 +15,7 @@
 }
 
 .item_container {
+  cursor: pointer;
   padding: 24px;
   box-shadow: 0px 17px 25px 0px rgba(0, 0, 0, 0.2);
   border-radius: 16px;
@@ -28,7 +29,11 @@
 }
 
 .title {
-  font-size: 16px;
+  font-family: "InknutAntiqua";
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 32px;
+  text-transform: uppercase;
   text-align: center;
 }
 

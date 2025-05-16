@@ -5,14 +5,21 @@ import Search from "../../assets/icons/search.svg?react";
 import SubNavbar from "./components/SubNavbar";
 
 import styles from "./styles.module.css";
+import { useNavigate } from "react-router";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleMenuPress = () => {
+    navigate("/carrinho");
+  };
+
   return (
     <div className={styles.margin}>
       <div className={styles.navbar_container}>
         <div className={styles.navbar}>
           <div className={styles.navbar_top}>
-            <div className={styles.left}>
+            <div className={styles.left} onClick={handleMenuPress}>
               <Menu />
             </div>
             <div className={styles.title}>

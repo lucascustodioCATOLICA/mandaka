@@ -1,6 +1,6 @@
-import Navbar from "../components/NavBar";
-import HorizontalMenuItems from "../components/HorizontalMenuItems";
-import SectionMenuItems from "../components/SectionMenuItems";
+import Navbar from "../../components/NavBar";
+import HorizontalMenuItems from "../../components/HorizontalMenuItems";
+import SectionMenuItems from "../../components/SectionMenuItems";
 
 function Menu() {
   return (

@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "InknutAntiqua";
+  src: url("../assets/fonts/InknutAntiqua-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}

@@ -34,10 +34,27 @@
 }
 
 .description_container {
-  margin-top: 10px;
+  width: fit-content;
+  margin: auto;
+  margin-top: 24px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   gap: 6px;
+}
+
+.item_menu_title {
+  font-family: "InknutAntiqua";
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  text-transform: uppercase;
+}
+
+.item_menu_text {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 18px;
 }
 
 .dot {
@@ -46,6 +63,4 @@
   border-radius: 2.5px;
   background-color: rgba(228, 228, 231, 1);
   margin: auto;
-
-  margin-top: 8px;
 }

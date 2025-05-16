@@ -1,6 +1,7 @@
 .row {
   display: flex;
   flex-direction: row;
+
   gap: 40px;
 
   overflow-x: scroll;
@@ -14,6 +15,9 @@
   color: rgba(255, 255, 255, 1);
 
   backdrop-filter: blur(24px);
+
+  font-family: "Poppins";
+  font-weight: 400;
 }
 
 .row::-webkit-scrollbar {

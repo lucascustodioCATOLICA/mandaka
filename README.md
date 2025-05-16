@@ -1,12 +1,32 @@
-# React + Vite
+# Como rodar:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Requisitos: node v24.0.2
 
-Currently, two official plugins are available:
+1. npm i -g yarn
+   baixa o yarn
+2. yarn
+   baixa as dependencias do projeto
+3. yarn dev
+   inicia um servidor de desenvolvimento do projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Estrutura do projeto
 
-## Expanding the ESLint configuration
+1. src\infra\router\AppRouter.jsx
+   Define as rotas da aplicacao.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. src\screens
+   Define as telas que sao usadas no AppRouter
+
+3. src\components
+   Define os componentes que sao usados nas telas
+
+# Como criar uma tela
+
+ir em src\infra\router\AppRouter.jsx e criar uma nova rota ex:
+<Route path="/carrinho" element={<Carrinho />} />
+
+especificando a url no path e o Componente React no element.
+
+# Observacoes
+
+1. Usar o padrao de desenvolvimento do projeto. Como q ve esse padrao? Nos arquivos do projeto porra! De uma olhada para ver como q desenvolve as paradas.

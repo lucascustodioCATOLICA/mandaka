@@ -30,3 +30,4 @@ especificando a url no path e o Componente React no element.
 # Observacoes
 
 1. Usar o padrao de desenvolvimento do projeto. Como q ve esse padrao? Nos arquivos do projeto porra! De uma olhada para ver como q desenvolve as paradas.
+2. Lembre de criar uma branch nova para sua feature/modificacao, e criar um pull request para agent ver seu codigo, antes de mergear ele na branch master.

@@ -1,50 +1,22 @@
+import { formatMoney } from "../../helpers/format-money";
 import styles from "./styles.module.css";
 
-const HorizontalMenuItems = () => {
+const HorizontalMenuItems = ({ list }) => {
   return (
     <div className={styles.list}>
-      <div className={styles.item_container}>
-        <div className={styles.food_image_container}>
-          <img
-            className={styles.food_image}
-            src="/images/foods/menu-item-model-1.png"
-          />
+      {list.map((item) => (
+        <div className={styles.item_container}>
+          <div className={styles.food_image_container}>
+            <img className={styles.food_image} src={item.imageUrl} />
+          </div>
+          <div className={styles.title}>{item.name}</div>
+          <div className={styles.description_container}>
+            <div>{item.duration}min</div>
+            <div className={styles.dot} />
+            <div>R${formatMoney(item.price)}</div>
+          </div>
         </div>
-        <div className={styles.title}>Steak do Cowboy</div>
-        <div className={styles.description_container}>
-          <div>42min</div>
-          <div className={styles.dot} />
-          <div>R$34,90</div>
-        </div>
-      </div>
-      <div className={styles.item_container}>
-        <div className={styles.food_image_container}>
-          <img
-            className={styles.food_image}
-            src="/images/foods/menu-item-model-1.png"
-          />
-        </div>
-        <div className={styles.title}>Steak do Cowboy</div>
-        <div className={styles.description_container}>
-          <div>42min</div>
-          <div className={styles.dot} />
-          <div>R$34,90</div>
-        </div>
-      </div>
-      <div className={styles.item_container}>
-        <div className={styles.food_image_container}>
-          <img
-            className={styles.food_image}
-            src="/images/foods/menu-item-model-1.png"
-          />
-        </div>
-        <div className={styles.title}>Steak do Cowboy</div>
-        <div className={styles.description_container}>
-          <div>42min</div>
-          <div className={styles.dot} />
-          <div>R$34,90</div>
-        </div>
-      </div>
+      ))}
     </div>
   );
 };

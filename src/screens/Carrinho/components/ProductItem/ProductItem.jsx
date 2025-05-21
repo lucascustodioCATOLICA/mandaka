@@ -17,11 +17,11 @@ function ProductItem({ id, name, image, label, price, count }) {
       </div>
       <div className={styles.controls}>
         <div className={styles.minus_container}>
-          <Minus />
+          <Minus className={styles.icon} />
         </div>
         <div className={styles.count}>{count}</div>
         <div className={styles.plus_container}>
-          <Plus />
+          <Plus className={styles.icon} />
         </div>
       </div>
     </div>

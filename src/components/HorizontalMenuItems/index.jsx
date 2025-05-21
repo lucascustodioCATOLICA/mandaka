@@ -4,7 +4,7 @@ const HorizontalMenuItems = () => {
   return (
     <div className={styles.list}>
       <div className={styles.item_container}>
-        <div>
+        <div className={styles.food_image_container}>
           <img
             className={styles.food_image}
             src="/images/foods/menu-item-model-1.png"
@@ -18,7 +18,7 @@ const HorizontalMenuItems = () => {
         </div>
       </div>
       <div className={styles.item_container}>
-        <div>
+        <div className={styles.food_image_container}>
           <img
             className={styles.food_image}
             src="/images/foods/menu-item-model-1.png"
@@ -32,7 +32,7 @@ const HorizontalMenuItems = () => {
         </div>
       </div>
       <div className={styles.item_container}>
-        <div>
+        <div className={styles.food_image_container}>
           <img
             className={styles.food_image}
             src="/images/foods/menu-item-model-1.png"

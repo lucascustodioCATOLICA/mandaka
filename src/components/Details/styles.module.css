@@ -27,8 +27,8 @@
 .title {
   font-family: "InknutAntiqua";
   font-weight: 800;
-  font-size: 28px;
-  line-height: 38px;
+  font-size: 24px;
+  line-height: 120%;
   text-transform: uppercase;
   margin-bottom: 12px;
 }
@@ -36,7 +36,7 @@
 .desc {
   font-family: "Poppins";
   font-weight: 500;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 120%;
   opacity: 0.5;
   margin-bottom: 24px;
@@ -75,13 +75,13 @@
 .obs_text_bold {
   font-family: "Poppins";
   font-weight: 600;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .obs_text {
   font-family: "Poppins";
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .bottom {
@@ -90,7 +90,7 @@
   display: flex;
   align-items: center;
   padding-top: 28px;
-  gap: 32px;
+  gap: 24px;
 }
 
 .counter {
@@ -100,37 +100,37 @@
   border: 1px #E4E4E740 solid;
   border-radius: 5px;
   padding: 10px;
-  gap: 28px;
+  gap: 17px;
 }
 
 .counter_text {
   font-family: Poppins;
   font-weight: 500;
-  font-size: 22px;
+  font-size: 18px;
   line-height: 120%;
   color: #FFFFFF;
 }
 
 .disabled_icon {
   cursor: pointer;
-  padding: 14px;
+  padding: 8px;
   stroke: #E4E4E74D;
 }
 
 .enabled_icon {
   cursor: pointer;
-  padding: 14px;
+  padding: 8px;
   stroke: #E95C18;
 }
 
 .button_text {
-  padding: 8px 12px;
+  padding: 4px 0px;
   width: 100%;
   display: flex;
   justify-content: space-between;
   
   font-family: Poppins;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 120%;
 }

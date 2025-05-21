@@ -1,0 +1,27 @@
+.input {
+  border: 1px #E4E4E740 solid;
+  background-color: #FFFFFF1A;
+  border-radius: 16px;
+  padding: 18px 16px;
+  
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 120%;
+  color: #E4E4E780;
+
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  outline: 1px #E4E4E780 solid;
+}
+
+.input::placeholder {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  color: #E4E4E780;
+}

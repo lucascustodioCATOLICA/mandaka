@@ -29,5 +29,6 @@ p {
   font-family: "Poppins";
   font-weight: 400;
   line-height: 12px;
+  line-height: 120%;
   color: white;
 }

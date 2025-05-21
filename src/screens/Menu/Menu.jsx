@@ -11,7 +11,7 @@ function Menu() {
       <SectionMenuItems title="Entradas" />
       <SectionMenuItems title="Parrilla" />
       <SectionMenuItems title="Hamburguer" />
-      <Details open />
+      <Details />
     </>
   );
 }

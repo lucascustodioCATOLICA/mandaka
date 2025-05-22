@@ -1,0 +1,136 @@
+.container {
+  padding: 0px 22px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon_container {
+  background-color: rgba(15, 15, 15, 0.42);
+  padding: 12px;
+  border-radius: 50px;
+}
+
+.image_container {
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  width: 294px;
+  height: 294px;
+  transform: translateY(-42px);
+}
+
+.title {
+  font-family: "InknutAntiqua";
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 120%;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.desc {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  opacity: 0.5;
+  margin-bottom: 24px;
+}
+
+.tags_container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 32px;
+}
+
+.tag {
+  background-color: #D9D9D91A;
+  height: 38px;
+  width: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  border-radius: 50px;
+  border: 1px #E4E4E780 solid;
+}
+
+.obs_container {
+  margin-bottom: 48px;  
+}
+
+.obs_text_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.obs_text_bold {
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.obs_text {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.bottom {
+  border-top: 1px #FFFFFF40 solid;
+  margin-bottom: 38px;
+  display: flex;
+  align-items: center;
+  padding-top: 28px;
+  gap: 24px;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px #E4E4E740 solid;
+  border-radius: 5px;
+  padding: 10px;
+  gap: 17px;
+}
+
+.counter_text {
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 120%;
+  color: #FFFFFF;
+}
+
+.disabled_icon {
+  cursor: pointer;
+  padding: 8px;
+  stroke: #E4E4E74D;
+}
+
+.enabled_icon {
+  cursor: pointer;
+  padding: 8px;
+  stroke: #E95C18;
+}
+
+.button_text {
+  padding: 4px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  
+  font-family: Poppins;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 120%;
+}

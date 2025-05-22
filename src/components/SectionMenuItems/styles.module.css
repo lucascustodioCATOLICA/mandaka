@@ -1,7 +1,7 @@
 .container {
   padding-left: 24px;
   padding-right: 24px;
-  margin-top: 24px;
+  margin-top: 32px;
 
   color: rgba(255, 255, 255, 1);
 }
@@ -9,7 +9,7 @@
 .title {
   font-family: "InknutAntiqua";
   font-weight: 700;
-  font-size: 24px;
+  font-size: 16px;
   line-height: 32px;
   text-transform: uppercase;
 
@@ -31,10 +31,11 @@
 }
 
 .food_image {
-  height: 140px;
+  max-width: 100px;
 }
 
 .right {
+  width: 100%;
   margin-left: 18px;
   text-align: center;
 }
@@ -52,15 +53,15 @@
 .item_menu_title {
   font-family: "InknutAntiqua";
   font-weight: 700;
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 16px;
+  line-height: 120%;
   text-transform: uppercase;
 }
 
 .item_menu_text {
   font-family: "Poppins";
   font-weight: 500;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .dot {

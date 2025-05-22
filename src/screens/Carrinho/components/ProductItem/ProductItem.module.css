@@ -20,50 +20,57 @@
 }
 
 .image {
-  width: 150px;
-  height: 150px;
+  width: 100px;
 }
 
 .label {
-  margin-top: 6px;
   color: rgba(255, 255, 255, 0.25);
-  font-size: 18px;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .name {
   font-family: "InknutAntiqua";
   color: rgba(255, 255, 255, 1);
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
-  line-height: 32px;
+  line-height: 110%;
   margin-top: 4px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 20px;
 }
 
 .controls {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 6px;
   align-items: center;
 }
 
 .count {
   font-family: "Poppins";
   font-weight: 500;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .minus_container {
   cursor: pointer;
-  border: 1.5px rgba(228, 228, 231, 0.25) solid;
-  padding: 18px;
+  border: 1.5px #E4E4E740 solid;
+  padding: 12px;
   border-radius: 32px;
 }
 
 .plus_container {
   cursor: pointer;
   background-color: rgba(228, 228, 231, 0.1);
-  padding: 18px;
+  padding: 12px;
   border-radius: 32px;
+}
+
+.icon {
+  stroke: #E4E4E7;
 }

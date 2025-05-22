@@ -1,6 +1,7 @@
 export const PRODUCTS = {
   carrousel: [
     {
+      id: 0,
       name: "Steak do cowboy",
       duration: 42,
       price: 34,
@@ -9,6 +10,7 @@ export const PRODUCTS = {
       label: ["soja", "egg", "milk", "crab", "peanut"],
     },
     {
+      id: 1,
       name: "Steak do cowboy",
       duration: 42,
       price: 34,
@@ -17,6 +19,7 @@ export const PRODUCTS = {
       label: ["soja", "egg", "milk", "crab", "peanut"],
     },
     {
+      id: 2,
       name: "Steak do cowboy",
       duration: 42,
       price: 34,
@@ -27,6 +30,7 @@ export const PRODUCTS = {
   ],
   open: [
     {
+      id: 1,
       name: "Steak do cowboy",
       duration: 42,
       price: 34,
@@ -35,6 +39,7 @@ export const PRODUCTS = {
       label: ["soja", "egg", "milk", "crab", "peanut"],
     },
     {
+      id: 1,
       name: "Steak do cowboy",
       duration: 42,
       price: 34,
@@ -43,6 +48,7 @@ export const PRODUCTS = {
       label: ["soja", "egg", "milk", "crab", "peanut"],
     },
     {
+      id: 2,
       name: "Steak do cowboy",
       duration: 42,
       price: 34,
@@ -53,6 +59,7 @@ export const PRODUCTS = {
   ],
   parrilla: [
     {
+      id: 0,
       name: "Steak do cowboy",
       duration: 42,
       price: 34,
@@ -61,6 +68,7 @@ export const PRODUCTS = {
       label: ["soja", "egg", "milk", "crab", "peanut"],
     },
     {
+      id: 1,
       name: "Steak do cowboy",
       duration: 42,
       price: 34,
@@ -69,6 +77,7 @@ export const PRODUCTS = {
       label: ["soja", "egg", "milk", "crab", "peanut"],
     },
     {
+      id: 2,
       name: "Steak do cowboy",
       duration: 42,
       price: 34,
@@ -79,6 +88,7 @@ export const PRODUCTS = {
   ],
   hamburguers: [
     {
+      id: 0,
       name: "Steak do cowboy",
       duration: 42,
       price: 34,
@@ -87,6 +97,7 @@ export const PRODUCTS = {
       label: ["soja", "egg", "milk", "crab", "peanut"],
     },
     {
+      id: 1,
       name: "Steak do cowboy",
       duration: 42,
       price: 34,
@@ -95,6 +106,7 @@ export const PRODUCTS = {
       label: ["soja", "egg", "milk", "crab", "peanut"],
     },
     {
+      id: 2,
       name: "Steak do cowboy",
       duration: 42,
       price: 34,

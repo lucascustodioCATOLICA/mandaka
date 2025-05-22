@@ -13,13 +13,23 @@ import Plus from "../../assets/icons/plus.svg?react";
 import styles from "./styles.module.css";
 import Button from "../Button";
 import Input from "../Input";
+import { formatMoney } from "../../helpers/format-money";
 
-const Details = ({ open }) => {
+const Details = ({ open, onClose, selectedProduct }) => {
+  if (!selectedProduct) {
+    return null;
+  }
+
+  const renderTagByTagName = (name, element) =>
+    selectedProduct.label.map((item) => {
+      if (item === name) return <div className={styles.tag}>{element}</div>;
+    });
+
   return (
     <BottomSheet open={open}>
       <div className={styles.container}>
         <div className={styles.nav}>
-          <div className={styles.icon_container}>
+          <div className={styles.icon_container} onClick={onClose}>
             <ArrowDown />
           </div>
           <div className={styles.icon_container}>
@@ -27,32 +37,16 @@ const Details = ({ open }) => {
           </div>
         </div>
         <div className={styles.image_container}>
-          <img
-            src="/images/foods/menu-item-model-1.png"
-            className={styles.image}
-          />
+          <img src={selectedProduct.imageUrl} className={styles.image} />
         </div>
-        <div className={styles.title}>Steak do cowboy</div>
-        <div className={styles.desc}>
-          Corte extraído da parte dianteira, entre o Ancho e o Acém,
-          extremamente macio e suculento (300g).
-        </div>
+        <div className={styles.title}>{selectedProduct.name}</div>
+        <div className={styles.desc}>{selectedProduct.desc}</div>
         <div className={styles.tags_container}>
-          <div className={styles.tag}>
-            <Egg />
-          </div>
-          <div className={styles.tag}>
-            <Soja />
-          </div>
-          <div className={styles.tag}>
-            <Milk />
-          </div>
-          <div className={styles.tag}>
-            <Crab />
-          </div>
-          <div className={styles.tag}>
-            <Peanut />
-          </div>
+          {renderTagByTagName("egg", <Egg />)}
+          {renderTagByTagName("soja", <Soja />)}
+          {renderTagByTagName("milk", <Milk />)}
+          {renderTagByTagName("crab", <Crab />)}
+          {renderTagByTagName("peanut", <Peanut />)}
         </div>
         <div className={styles.obs_container}>
           <div className={styles.obs_text_container}>
@@ -74,7 +68,7 @@ const Details = ({ open }) => {
           <Button>
             <div className={styles.button_text}>
               <div>Adicionar </div>
-              <div>R$34,90</div>
+              <div>R${formatMoney(selectedProduct.price)}</div>
             </div>
           </Button>
         </div>

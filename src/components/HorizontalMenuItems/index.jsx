@@ -1,11 +1,15 @@
 import { formatMoney } from "../../helpers/format-money";
 import styles from "./styles.module.css";
 
-const HorizontalMenuItems = ({ list }) => {
+const HorizontalMenuItems = ({ list, onProductItemPress }) => {
   return (
     <div className={styles.list}>
       {list.map((item) => (
-        <div className={styles.item_container}>
+        <div
+          key={item.id}
+          className={styles.item_container}
+          onClick={() => onProductItemPress(item)}
+        >
           <div className={styles.food_image_container}>
             <img className={styles.food_image} src={item.imageUrl} />
           </div>

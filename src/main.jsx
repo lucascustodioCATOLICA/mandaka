@@ -5,7 +5,7 @@ import "react-spring-bottom-sheet/dist/style.css";
 
 import AppRouter from "./infra/router/AppRouter";
 
-import "./infra/react-spring-bottomsheet/styles.module.css";
+import "./infra/react-spring-bottomsheet/styles.css";
 import "./constants/fonts.css";
 import "./index.css";
 

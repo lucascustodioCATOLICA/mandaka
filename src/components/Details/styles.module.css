@@ -5,6 +5,7 @@
 .nav {
   display: flex;
   justify-content: space-between;
+  z-index: 999;
 }
 
 .icon_container {
@@ -16,6 +17,7 @@
 .image_container {
   display: flex;
   justify-content: center;
+  pointer-events: none;
 }
 
 .image {
@@ -50,7 +52,7 @@
 }
 
 .tag {
-  background-color: #D9D9D91A;
+  background-color: #d9d9d91a;
   height: 38px;
   width: 38px;
   display: flex;
@@ -58,11 +60,11 @@
   align-items: center;
   padding: 8px;
   border-radius: 50px;
-  border: 1px #E4E4E780 solid;
+  border: 1px #e4e4e780 solid;
 }
 
 .obs_container {
-  margin-bottom: 48px;  
+  margin-bottom: 48px;
 }
 
 .obs_text_container {
@@ -85,7 +87,7 @@
 }
 
 .bottom {
-  border-top: 1px #FFFFFF40 solid;
+  border-top: 1px #ffffff40 solid;
   margin-bottom: 38px;
   display: flex;
   align-items: center;
@@ -97,7 +99,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px #E4E4E740 solid;
+  border: 1px #e4e4e740 solid;
   border-radius: 5px;
   padding: 10px;
   gap: 17px;
@@ -108,19 +110,19 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 120%;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .disabled_icon {
   cursor: pointer;
   padding: 8px;
-  stroke: #E4E4E74D;
+  stroke: #e4e4e74d;
 }
 
 .enabled_icon {
   cursor: pointer;
   padding: 8px;
-  stroke: #E95C18;
+  stroke: #e95c18;
 }
 
 .button_text {
@@ -128,7 +130,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  
+
   font-family: Poppins;
   font-weight: 600;
   font-size: 14px;

@@ -1,27 +1,10 @@
-.container {
-  background-image: url("../../../public/images/firstback.png");
-  background-repeat: no-repeat;
+.container{
+  position: relative;
   background-position: center;
   background-size: cover;
+  background-image: url('../../../public/images/firstback.png');
   height: 100vh;
-}
+  width: 100%;
+  display: flex;;
 
-.container::before {
-  content: "";
-  overflow-y: scroll;
-  color: black;
-  opacity: 0.6;
-  backdrop-filter: blur(50px);
-}
-
-.imageContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.imageContainer2 {
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

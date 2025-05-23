@@ -1,21 +1,17 @@
+import Top from "./components/top/Top";
+import Center from "./components/center/Center";
+import Footer from "./components/footer/Footer";
 import styles from "./styles.module.css";
+
 function FirstPage() {
   return (
-    <div className={styles.container}>
-      
-      <div className={styles.imageContainer}>
-        <img src="../../../public/images/login/vectorfogo.png" alt="" />
-      </div>
-      <div className={styles.imageContainer2}>
-        <img src="../../../src/assets/icons/logo.svg" alt="" />
-      </div>
-      <div class name={styles.textContainer}> {
-          
-    }
-      
 
-      </div>
+    <div className={styles.container}>
+      <Top />
+      <Center />
+      <Footer />
     </div>
+ 
     
   );
 }

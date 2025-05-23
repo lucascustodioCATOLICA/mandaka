@@ -12,7 +12,6 @@ function Login() {
         <Top/>
         <Form/>
         <Footer/>
-      
         </div>
     );
 }

@@ -26,7 +26,7 @@ const Details = ({ open, onClose, selectedProduct }) => {
     });
 
   return (
-    <BottomSheet open={open}>
+    <BottomSheet open={open} initialFocusRef={false}>
       <div className={styles.container}>
         <div className={styles.nav}>
           <div className={styles.icon_container} onClick={onClose}>

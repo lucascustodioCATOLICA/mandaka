@@ -14,8 +14,13 @@ import styles from "./styles.module.css";
 import Button from "../Button";
 import Input from "../Input";
 import { formatMoney } from "../../helpers/format-money";
+import { ProductsStorage } from "../../infra/storage/products";
+import { useState } from "react";
 
 const Details = ({ open, onClose, selectedProduct }) => {
+  const [count, setCount] = useState(1);
+  const [userObservations, setUserObservations] = useState("");
+
   if (!selectedProduct) {
     return null;
   }
@@ -24,6 +29,28 @@ const Details = ({ open, onClose, selectedProduct }) => {
     selectedProduct.label.map((item) => {
       if (item === name) return <div className={styles.tag}>{element}</div>;
     });
+
+  const handleCounterAddButtonPress = () => {
+    setCount((prev) => prev + 1);
+  };
+
+  const handleCounterMinusButtonPress = () => {
+    setCount((prev) => {
+      if (prev !== 1) {
+        return prev - 1;
+      }
+      return prev;
+    });
+  };
+
+  const handleAddButtonPress = () => {
+    ProductsStorage.addProductsToCarrinho({
+      ...selectedProduct,
+      count,
+      userObservations,
+    });
+    onClose();
+  };
 
   return (
     <BottomSheet open={open} initialFocusRef={false}>
@@ -53,19 +80,22 @@ const Details = ({ open, onClose, selectedProduct }) => {
             <div className={styles.obs_text_bold}>Adicionar observação?</div>
             <div className={styles.obs_text}>0/140</div>
           </div>
-          <Input placeholder="Ex: tirar a cebola, maionese à parte etc." />
+          <Input
+            placeholder="Ex: tirar a cebola, maionese à parte etc."
+            onChangeText={setUserObservations}
+          />
         </div>
         <div className={styles.bottom}>
           <div className={styles.counter}>
-            <div>
+            <div onClick={handleCounterMinusButtonPress}>
               <Minus className={styles.disabled_icon} />
             </div>
-            <div className={styles.counter_text}>1</div>
-            <div>
+            <div className={styles.counter_text}>{count}</div>
+            <div onClick={handleCounterAddButtonPress}>
               <Plus className={styles.enabled_icon} />
             </div>
           </div>
-          <Button>
+          <Button onPress={handleAddButtonPress}>
             <div className={styles.button_text}>
               <div>Adicionar </div>
               <div>R${formatMoney(selectedProduct.price)}</div>

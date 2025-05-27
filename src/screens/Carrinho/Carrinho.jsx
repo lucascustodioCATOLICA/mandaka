@@ -57,6 +57,10 @@ function Carrinho() {
     });
   };
 
+  const handleMethodPaymentButtonPress = () => {
+    navigate("/pagamento");
+  };
+
   useEffect(() => {
     const productsFromStorage = ProductsStorage.getProductsFromCarrinho();
     setProducts(productsFromStorage);
@@ -79,7 +83,10 @@ function Carrinho() {
           />
         ))}
       </div>
-      <Bottom price={price} />
+      <Bottom
+        onMethodPaymentButtonPress={handleMethodPaymentButtonPress}
+        price={price}
+      />
     </div>
   );
 }

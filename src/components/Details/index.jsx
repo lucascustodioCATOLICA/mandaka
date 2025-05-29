@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BottomSheet } from "react-spring-bottom-sheet";
 
 import ArrowDown from "../../assets/icons/arrow-down.svg?react";
@@ -15,7 +16,6 @@ import Button from "../Button";
 import Input from "../Input";
 import { formatMoney } from "../../helpers/format-money";
 import { ProductsStorage } from "../../infra/storage/products";
-import { useState } from "react";
 
 const Details = ({ open, onClose, selectedProduct }) => {
   const [count, setCount] = useState(1);

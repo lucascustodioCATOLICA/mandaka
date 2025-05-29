@@ -3,6 +3,7 @@ export const PRODUCTS = {
     {
       id: 0,
       name: "Steak do cowboy",
+      category: "classicos",
       duration: 42,
       price: 34,
       imageUrl: "/images/foods/menu-item-model-1.png",
@@ -12,6 +13,7 @@ export const PRODUCTS = {
     {
       id: 1,
       name: "Steak do cowboy",
+      category: "classicos",
       duration: 42,
       price: 34,
       imageUrl: "/images/foods/menu-item-model-1.png",
@@ -21,6 +23,7 @@ export const PRODUCTS = {
     {
       id: 2,
       name: "Steak do cowboy",
+      category: "classicos",
       duration: 42,
       price: 34,
       imageUrl: "/images/foods/menu-item-model-1.png",
@@ -32,6 +35,7 @@ export const PRODUCTS = {
     {
       id: 3,
       name: "Steak do cowboy",
+      category: "entrada",
       duration: 42,
       price: 34,
       imageUrl: "/images/foods/menu-item-model-1.png",
@@ -41,6 +45,7 @@ export const PRODUCTS = {
     {
       id: 4,
       name: "Steak do cowboy",
+      category: "entrada",
       duration: 42,
       price: 34,
       imageUrl: "/images/foods/menu-item-model-1.png",
@@ -50,6 +55,7 @@ export const PRODUCTS = {
     {
       id: 5,
       name: "Steak do cowboy",
+      category: "entrada",
       duration: 42,
       price: 34,
       imageUrl: "/images/foods/menu-item-model-1.png",
@@ -61,6 +67,7 @@ export const PRODUCTS = {
     {
       id: 6,
       name: "Steak do cowboy",
+      category: "parrilla",
       duration: 42,
       price: 34,
       imageUrl: "/images/foods/menu-item-model-1.png",
@@ -70,6 +77,7 @@ export const PRODUCTS = {
     {
       id: 7,
       name: "Steak do cowboy",
+      category: "parrilla",
       duration: 42,
       price: 34,
       imageUrl: "/images/foods/menu-item-model-1.png",
@@ -79,6 +87,7 @@ export const PRODUCTS = {
     {
       id: 8,
       name: "Steak do cowboy",
+      category: "parrilla",
       duration: 42,
       price: 34,
       imageUrl: "/images/foods/menu-item-model-1.png",
@@ -90,6 +99,7 @@ export const PRODUCTS = {
     {
       id: 9,
       name: "Steak do cowboy",
+      category: "hamburguer",
       duration: 42,
       price: 34,
       imageUrl: "/images/foods/menu-item-model-1.png",
@@ -99,6 +109,7 @@ export const PRODUCTS = {
     {
       id: 10,
       name: "Steak do cowboy",
+      category: "hamburguer",
       duration: 42,
       price: 34,
       imageUrl: "/images/foods/menu-item-model-1.png",
@@ -108,6 +119,7 @@ export const PRODUCTS = {
     {
       id: 11,
       name: "Steak do cowboy",
+      category: "hamburguer",
       duration: 42,
       price: 34,
       imageUrl: "/images/foods/menu-item-model-1.png",

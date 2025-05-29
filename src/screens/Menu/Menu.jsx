@@ -37,25 +37,29 @@ function Menu() {
   return (
     <>
       <Navbar />
-      <HorizontalMenuItems
-        list={classicos}
-        onProductItemPress={handleProductItemPress}
-      />
-      <SectionMenuItems
-        title="Entradas"
-        list={entrada}
-        onProductItemPress={handleProductItemPress}
-      />
-      <SectionMenuItems
-        title="Parrilla"
-        list={parrilla}
-        onProductItemPress={handleProductItemPress}
-      />
-      <SectionMenuItems
-        title="Hamburguer"
-        list={hamburguer}
-        onProductItemPress={handleProductItemPress}
-      />
+      {pratos.length > 0 && (
+        <>
+          <HorizontalMenuItems
+            list={classicos}
+            onProductItemPress={handleProductItemPress}
+          />
+          <SectionMenuItems
+            title="Entradas"
+            list={entrada}
+            onProductItemPress={handleProductItemPress}
+          />
+          <SectionMenuItems
+            title="Parrilla"
+            list={parrilla}
+            onProductItemPress={handleProductItemPress}
+          />
+          <SectionMenuItems
+            title="Hamburguer"
+            list={hamburguer}
+            onProductItemPress={handleProductItemPress}
+          />
+        </>
+      )}
       <Details
         open={openDetails}
         onClose={handleCloseBottomsheet}

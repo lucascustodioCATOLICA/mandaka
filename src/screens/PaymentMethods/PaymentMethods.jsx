@@ -4,10 +4,11 @@ import DarkNavbar from "../../components/DarkNavBar";
 import PaymentMethodButton from "./components/PaymentMethodButton/PaymentMethodButton";
 
 import styles from "./PaymentMethods.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../../components/Button";
 import { PedidosService } from "../../services/pedidos";
 import { ProductsStorage } from "../../infra/storage/products";
+import { MetodosDePagamentoService } from "../../services/metodos_de_pagamento";
 
 const PAYMENT_METHODS = [
   {
@@ -27,6 +28,7 @@ const PAYMENT_METHODS = [
 function Carrinho() {
   const navigate = useNavigate();
   const [selected, setSelected] = useState(null);
+  const [methods, setMethods] = useState([]);
 
   const handleGoBack = () => {
     navigate(-1);
@@ -46,6 +48,14 @@ function Carrinho() {
     navigate(-2);
   };
 
+  useEffect(() => {
+    const getMetodos = async () => {
+      const metodosFromService = await MetodosDePagamentoService.getMetodos();
+      setMethods(metodosFromService);
+    };
+    getMetodos();
+  }, []);
+
   return (
     <div className={styles.background}>
       <DarkNavbar onGoBack={handleGoBack} />
@@ -55,7 +65,7 @@ function Carrinho() {
           Escolha a forma de pagamento que o nosso garçom vai até sua mesa
           rapidinho pra finalizar tudo com você.
         </div>
-        {PAYMENT_METHODS.map((payment) => (
+        {methods.map((payment) => (
           <PaymentMethodButton
             onClick={() => handleClickButton(payment.id)}
             key={payment.id}

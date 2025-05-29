@@ -6,6 +6,8 @@ import PaymentMethodButton from "./components/PaymentMethodButton/PaymentMethodB
 import styles from "./PaymentMethods.module.css";
 import { useState } from "react";
 import Button from "../../components/Button";
+import { PedidosService } from "../../services/pedidos";
+import { ProductsStorage } from "../../infra/storage/products";
 
 const PAYMENT_METHODS = [
   {
@@ -34,6 +36,16 @@ function Carrinho() {
     setSelected(id);
   };
 
+  const handleSendToKitchenButtonPress = () => {
+    if (selected !== null) {
+      const products = ProductsStorage.getProductsFromCarrinho();
+      products.forEach((item) =>
+        PedidosService.addPedidos({ ...item, methodPaymentId: selected })
+      );
+    }
+    navigate(-2);
+  };
+
   return (
     <div className={styles.background}>
       <DarkNavbar onGoBack={handleGoBack} />
@@ -53,7 +65,9 @@ function Carrinho() {
         ))}
       </div>
       <div className={styles.bottom}>
-        <Button>Mandar para cozinha!</Button>
+        <Button onPress={handleSendToKitchenButtonPress}>
+          Mandar para cozinha!
+        </Button>
       </div>
     </div>
   );

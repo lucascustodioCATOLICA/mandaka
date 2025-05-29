@@ -46,8 +46,13 @@ const getProductsFromCarrinho = () => {
   return [];
 };
 
+const resetProductsFromCarrinho = () => {
+  localStorage.setItem("carrinho", JSON.stringify([]));
+};
+
 export const ProductsStorage = {
   addProductsToCarrinho,
   getProductsFromCarrinho,
   updateProducts,
+  resetProductsFromCarrinho,
 };

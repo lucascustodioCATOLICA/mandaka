@@ -44,6 +44,7 @@ function Carrinho() {
       products.forEach((item) =>
         PedidosService.addPedidos({ ...item, methodPaymentId: selected })
       );
+      ProductsStorage.resetProductsFromCarrinho();
     }
     navigate(-2);
   };

@@ -5,6 +5,7 @@ import Carrinho from "../../screens/Carrinho/Carrinho";
 import FirstPage from "../../screens/FirstPage/FirstPage";
 import Cadastro from "../../screens/Cadastro/Cadastro";
 import Login from "../../screens/Login/Login";
+import NoLogin from "../../screens/NoLogin/NoLogin";
 import Menu from "../../screens/Menu/Menu";
 
 const AppRouter = () => {
@@ -13,10 +14,11 @@ const AppRouter = () => {
       <Routes>
         <Route path="/" element={<Menu />} />
         <Route path="/carrinho" element={<Carrinho />} />
-        <Route path="/pagamento" element={<PaymentMethods />} />
         <Route path="/first-page" element={<FirstPage />} />
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/no-login" element={<NoLogin />} />
+        <Route path="/pagamento" element={<PaymentMethods />} />
       </Routes>
     </HashRouter>
   );

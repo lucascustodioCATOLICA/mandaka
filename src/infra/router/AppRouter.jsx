@@ -1,11 +1,12 @@
 import { HashRouter, Routes, Route } from "react-router";
 
-import Menu from "../../screens/Menu/Menu";
+import PaymentMethods from "../../screens/PaymentMethods/PaymentMethods";
 import Carrinho from "../../screens/Carrinho/Carrinho";
 import FirstPage from "../../screens/FirstPage/FirstPage";
 import Cadastro from "../../screens/Cadastro/Cadastro";
 import Login from "../../screens/Login/Login";
 import NoLogin from "../../screens/NoLogin/NoLogin";
+import Menu from "../../screens/Menu/Menu";
 
 const AppRouter = () => {
   return (
@@ -17,6 +18,7 @@ const AppRouter = () => {
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/login" element={<Login />} />
         <Route path="/no-login" element={<NoLogin />} />
+        <Route path="/pagamento" element={<PaymentMethods />} />
       </Routes>
     </HashRouter>
   );

@@ -1,13 +1,20 @@
+import { useEffect, useState } from "react";
+
 import Navbar from "../../components/NavBar";
 import HorizontalMenuItems from "../../components/HorizontalMenuItems";
 import SectionMenuItems from "../../components/SectionMenuItems";
 import Details from "../../components/Details";
-import { PRODUCTS } from "../../constants/products";
-import { useState } from "react";
+import { PratosService } from "../../services/pratos";
 
 function Menu() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [openDetails, setOpenDetails] = useState(false);
+  const [pratos, setPratos] = useState([]);
+
+  const classicos = pratos.filter((item) => item.category === "classicos");
+  const entrada = pratos.filter((item) => item.category === "entrada");
+  const parrilla = pratos.filter((item) => item.category === "parrilla");
+  const hamburguer = pratos.filter((item) => item.category === "hamburguer");
 
   const handleCloseBottomsheet = () => {
     setOpenDetails(false);
@@ -19,28 +26,40 @@ function Menu() {
     setSelectedProduct(value);
   };
 
+  useEffect(() => {
+    const getPratos = async () => {
+      const pratosFromService = await PratosService.getPratos();
+      setPratos(pratosFromService);
+    };
+    getPratos();
+  }, []);
+
   return (
     <>
       <Navbar />
-      <HorizontalMenuItems
-        list={PRODUCTS.carrousel}
-        onProductItemPress={handleProductItemPress}
-      />
-      <SectionMenuItems
-        title="Entradas"
-        list={PRODUCTS.open}
-        onProductItemPress={handleProductItemPress}
-      />
-      <SectionMenuItems
-        title="Parrilla"
-        list={PRODUCTS.parrilla}
-        onProductItemPress={handleProductItemPress}
-      />
-      <SectionMenuItems
-        title="Hamburguer"
-        list={PRODUCTS.hamburguers}
-        onProductItemPress={handleProductItemPress}
-      />
+      {pratos.length > 0 && (
+        <>
+          <HorizontalMenuItems
+            list={classicos}
+            onProductItemPress={handleProductItemPress}
+          />
+          <SectionMenuItems
+            title="Entradas"
+            list={entrada}
+            onProductItemPress={handleProductItemPress}
+          />
+          <SectionMenuItems
+            title="Parrilla"
+            list={parrilla}
+            onProductItemPress={handleProductItemPress}
+          />
+          <SectionMenuItems
+            title="Hamburguer"
+            list={hamburguer}
+            onProductItemPress={handleProductItemPress}
+          />
+        </>
+      )}
       <Details
         open={openDetails}
         onClose={handleCloseBottomsheet}

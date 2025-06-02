@@ -1,68 +1,92 @@
+import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router";
+
 import DarkNavbar from "../../components/DarkNavBar";
 import Bottom from "./components/Bottom/Bottom";
 import ProductItem from "./components/ProductItem/ProductItem";
 
 import styles from "./Carrinho.module.css";
-import { useNavigate } from "react-router";
+import { ProductsStorage } from "../../infra/storage/products";
+import { formatMoney } from "../../helpers/format-money";
 
 function Carrinho() {
   const navigate = useNavigate();
+  const [products, setProducts] = useState([]);
+
+  const price = useMemo(() => {
+    let value = 0;
+    products.forEach((item) => (value += item.price));
+    return value;
+  }, [products]);
 
   const handleGoBack = () => {
     navigate(-1);
   };
 
+  const handleMinusButtonPress = (id) => {
+    setProducts((prev) => {
+      const newProducts = prev.map((item) => {
+        if (item.id !== id) {
+          return item;
+        }
+        const newCount = item.count--;
+        if (newCount === 0) {
+          return { ...item, removed: true };
+        }
+        const newPrice = newCount * item.product.price;
+        return { ...item, count: newCount, price: newPrice };
+      });
+      const newProductsFiltered = newProducts.filter((item) => !item.removed);
+      ProductsStorage.updateProducts(newProductsFiltered);
+      return newProductsFiltered;
+    });
+  };
+
+  const handlePlusButtonPress = (id) => {
+    setProducts((prev) => {
+      const newProducts = prev.map((item) => {
+        if (item.id !== id) {
+          return item;
+        }
+        const newCount = item.count++;
+        const newPrice = newCount * item.product.price;
+        return { ...item, count: newCount, price: newPrice };
+      });
+      ProductsStorage.updateProducts(newProducts);
+      return newProducts;
+    });
+  };
+
+  const handleMethodPaymentButtonPress = () => {
+    navigate("/pagamento");
+  };
+
+  useEffect(() => {
+    const productsFromStorage = ProductsStorage.getProductsFromCarrinho();
+    setProducts(productsFromStorage);
+  }, []);
+
   return (
     <div className={styles.background}>
       <DarkNavbar onGoBack={handleGoBack} />
       <div className={styles.products}>
-        <ProductItem
-          id={1}
-          name="Steak do Cowboy"
-          price="34,90"
-          label="Parrilla"
-          count={1}
-          image="/images/foods/menu-item-model-1.png"
-        />
-        <div style={{ marginTop: 32 }} />
-        <ProductItem
-          id={1}
-          name="Steak do Cowboy"
-          price="34,90"
-          label="Parrilla"
-          count={1}
-          image="/images/foods/menu-item-model-1.png"
-        />
-        <div style={{ marginTop: 32 }} />
-        <ProductItem
-          id={1}
-          name="Steak do Cowboy"
-          price="34,90"
-          label="Parrilla"
-          count={1}
-          image="/images/foods/menu-item-model-1.png"
-        />
-        <div style={{ marginTop: 32 }} />
-        <ProductItem
-          id={1}
-          name="Steak do Cowboy"
-          price="34,90"
-          label="Parrilla"
-          count={1}
-          image="/images/foods/menu-item-model-1.png"
-        />
-        <div style={{ marginTop: 32 }} />
-        <ProductItem
-          id={1}
-          name="Steak do Cowboy"
-          price="34,90"
-          label="Parrilla"
-          count={1}
-          image="/images/foods/menu-item-model-1.png"
-        />
-        <div style={{ marginTop: 32 }} />
+        {products.map((item) => (
+          <ProductItem
+            id={item.id}
+            name={item.product.name}
+            price={formatMoney(item.product.price)}
+            label={item.product.name}
+            count={item.count}
+            image={item.product.imageUrl}
+            onMinusButtonPress={handleMinusButtonPress}
+            onPlusButtonPress={handlePlusButtonPress}
+          />
+        ))}
       </div>
-      <Bottom />
+      <Bottom
+        onMethodPaymentButtonPress={handleMethodPaymentButtonPress}
+        price={price}
+      />
     </div>
   );
 }

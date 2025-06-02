@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 32px;
 }
 
 .row {
@@ -59,7 +60,7 @@
 
 .minus_container {
   cursor: pointer;
-  border: 1.5px #E4E4E740 solid;
+  border: 1.5px #e4e4e740 solid;
   padding: 12px;
   border-radius: 32px;
 }
@@ -72,5 +73,5 @@
 }
 
 .icon {
-  stroke: #E4E4E7;
+  stroke: #e4e4e7;
 }

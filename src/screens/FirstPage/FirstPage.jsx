@@ -5,14 +5,11 @@ import styles from "./styles.module.css";
 
 function FirstPage() {
   return (
-
     <div className={styles.container}>
       <Top />
       <Center />
       <Footer />
     </div>
- 
-    
   );
 }
 export default FirstPage;

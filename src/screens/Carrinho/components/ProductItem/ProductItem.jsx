@@ -2,7 +2,16 @@ import styles from "./ProductItem.module.css";
 import Minus from "../../../../assets/icons/minus.svg?react";
 import Plus from "../../../../assets/icons/plus.svg?react";
 
-function ProductItem({ id, name, image, label, price, count }) {
+function ProductItem({
+  id,
+  name,
+  image,
+  label,
+  price,
+  count,
+  onPlusButtonPress,
+  onMinusButtonPress,
+}) {
   return (
     <div key={id} className={styles.container}>
       <div className={styles.row}>
@@ -16,11 +25,17 @@ function ProductItem({ id, name, image, label, price, count }) {
         </div>
       </div>
       <div className={styles.controls}>
-        <div className={styles.minus_container}>
+        <div
+          className={styles.minus_container}
+          onClick={() => onMinusButtonPress(id)}
+        >
           <Minus className={styles.icon} />
         </div>
         <div className={styles.count}>{count}</div>
-        <div className={styles.plus_container}>
+        <div
+          className={styles.plus_container}
+          onClick={() => onPlusButtonPress(id)}
+        >
           <Plus className={styles.icon} />
         </div>
       </div>

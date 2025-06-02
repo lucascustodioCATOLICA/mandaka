@@ -4,10 +4,12 @@ function Footer() {
   return (
     <div className={styles.geral}>
       <div className={styles.text}>
-        <p>Já tem uma conta? </p>
+        <p>Quer ganhar benefícios? </p>
       </div>
       <div className={styles.login}>
-        <p><u>Faça login aqui.</u></p>
+        <p>
+          <u>Inscreva-se</u>
+        </p>
       </div>
     </div>
   );

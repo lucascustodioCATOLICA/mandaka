@@ -8,6 +8,15 @@
 
   height: 100vh;
 }
+
+.textparagraph {
+  text-align: center;
+  font-family: poppins, sans-serif;
+  font-size: 14px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 input {
   padding: 14px;
   width: 30vh;
@@ -15,16 +24,17 @@ input {
   border: 1px solid white;
   border-radius: 8px;
   background-color: black;
-  opacity: 0.8;
+  opacity: 0.4;
   flex-direction: column;
   margin-bottom: 14px;
 }
+
 .button {
   background-color: #c94415;
-  color: white; 
-  border: none; 
-  padding: 14px;  
-  border-radius: 8px; 
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
   display: flex;
   font-size: 16px;
   align-items: center;

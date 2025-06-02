@@ -1,8 +1,13 @@
 import styles from "./styles.module.css";
 
-const Input = ({ placeholder }) => {
+const Input = ({ placeholder, onChangeText }) => {
   return (
-    <input className={styles.input} type="text" placeholder={placeholder} />
+    <input
+      onChange={(e) => onChangeText(e.target.value)}
+      className={styles.input}
+      type="text"
+      placeholder={placeholder}
+    />
   );
 };
 

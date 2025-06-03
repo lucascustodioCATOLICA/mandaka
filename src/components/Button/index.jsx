@@ -1,8 +1,15 @@
 import styles from "./styles.module.css";
 
-const Button = ({ onPress, children }) => {
+const Button = ({ onPress, children, disabled }) => {
+  const style = disabled ? styles.container_disabled : styles.container;
+
+  const handleButtonPress = () => {
+    if (disabled) return;
+    onPress();
+  };
+
   return (
-    <div className={styles.container} onClick={onPress}>
+    <div className={style} onClick={handleButtonPress}>
       {children}
     </div>
   );

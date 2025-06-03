@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 
-function Form() {
+function Form({ onNameInputChange, onTelInputChange, onFinishButtonPress }) {
   return (
     <div className={styles.geral}>
       <h1>Mesa</h1>
@@ -12,10 +12,21 @@ function Form() {
       </div>
       <div className={styles.forms}>
         <form action="">
-          {" "}
-          <input type="text" placeholder="Nome Completo" />{" "}
+          <input
+            type="text"
+            placeholder="Nome Completo"
+            onChange={(e) => onNameInputChange(e.target.value)}
+          />
+          <br />
+          <input
+            type="tel"
+            placeholder="Telefone"
+            onChange={(e) => onTelInputChange(e.target.value)}
+          />
         </form>
-        <button className={styles.button}>Concluir</button>
+        <button onClick={onFinishButtonPress} className={styles.button}>
+          Concluir
+        </button>
       </div>
     </div>
   );

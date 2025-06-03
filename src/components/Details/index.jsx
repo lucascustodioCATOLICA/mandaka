@@ -16,10 +16,14 @@ import Button from "../Button";
 import Input from "../Input";
 import { formatMoney } from "../../helpers/format-money";
 import { ProductsStorage } from "../../infra/storage/products";
+import useLogin from "../../screens/Login/hooks/useLogin";
 
 const Details = ({ open, onClose, selectedProduct }) => {
+  const { getHasUserLogged } = useLogin();
+
   const [count, setCount] = useState(1);
   const [userObservations, setUserObservations] = useState("");
+  const hasUserLogged = getHasUserLogged();
 
   if (!selectedProduct) {
     return null;
@@ -95,7 +99,7 @@ const Details = ({ open, onClose, selectedProduct }) => {
               <Plus className={styles.enabled_icon} />
             </div>
           </div>
-          <Button onPress={handleAddButtonPress}>
+          <Button disabled={!hasUserLogged} onPress={handleAddButtonPress}>
             <div className={styles.button_text}>
               <div>Adicionar </div>
               <div>R${formatMoney(selectedProduct.price)}</div>

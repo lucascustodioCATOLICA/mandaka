@@ -9,6 +9,8 @@ import Button from "../../components/Button";
 import { PedidosService } from "../../services/pedidos";
 import { ProductsStorage } from "../../infra/storage/products";
 import { MetodosDePagamentoService } from "../../services/metodos_de_pagamento";
+import { UserStorage } from "../../infra/storage/user";
+import useLogin from "../Login/hooks/useLogin";
 
 const PAYMENT_METHODS = [
   {
@@ -27,6 +29,7 @@ const PAYMENT_METHODS = [
 
 function Carrinho() {
   const navigate = useNavigate();
+  const { getUser, getHasUserLogged } = useLogin();
   const [selected, setSelected] = useState(null);
   const [methods, setMethods] = useState([]);
 
@@ -39,10 +42,15 @@ function Carrinho() {
   };
 
   const handleSendToKitchenButtonPress = () => {
-    if (selected !== null) {
+    if (selected !== null && getHasUserLogged) {
+      const { userId } = getUser();
       const products = ProductsStorage.getProductsFromCarrinho();
       products.forEach((item) =>
-        PedidosService.addPedidos({ ...item, methodPaymentId: selected })
+        PedidosService.addPedidos({
+          ...item,
+          methodPaymentId: selected,
+          userId,
+        })
       );
       ProductsStorage.resetProductsFromCarrinho();
     }

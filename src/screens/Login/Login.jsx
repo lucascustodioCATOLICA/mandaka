@@ -6,14 +6,13 @@ import styles from "./styles.module.css";
 import { useState } from "react";
 
 function Login() {
-    return (
-        <div>
-        <Autenticacao/>
-        <Top/>
-        <Form/>
-        <Footer/>
-      
-        </div>
-    );
+  return (
+    <div>
+      <Autenticacao />
+      <Top />
+      <Form />
+      <Footer />
+    </div>
+  );
 }
 export default Login;

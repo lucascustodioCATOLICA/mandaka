@@ -9,7 +9,7 @@ function Bottom({ price, onMethodPaymentButtonPress }) {
         <div className={styles.bold}>Total</div>
         <div>R${formatMoney(price)}</div>
       </div>
-      <Button onPress={onMethodPaymentButtonPress}>
+      <Button disabled={price === 0} onPress={onMethodPaymentButtonPress}>
         Escolher forma de pagamento
       </Button>
     </div>

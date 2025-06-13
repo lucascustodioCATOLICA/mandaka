@@ -5,9 +5,8 @@ import { UserStorage } from "../../../infra/storage/user";
 const USER_LOGGED_LIMIT_IN_MILLIS = 4 * 60 * 60 * 1000;
 
 const useLogin = () => {
-  const initUser = ({ name, phone, mesa }) => {
+  const initUser = ({ name, phone, mesa, userId = uuidv4() }) => {
     const timestamp = Date.now();
-    const userId = uuidv4();
     UserStorage.saveUserInfo({ userId, name, phone, mesa, timestamp });
   };
 

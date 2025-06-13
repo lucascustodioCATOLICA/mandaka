@@ -1,8 +1,9 @@
-.container{
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    top: 8%;
-    width: 100%;
+.container {
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  top: 8%;
+  width: 100%;
+  pointer-events: none;
 }

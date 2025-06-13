@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router";
+import { useNavigate, useSearchParams } from "react-router";
 
 import Autenticacao from "../../components/Autenticacao";
 import Top from "./components/top//Top";
@@ -8,14 +8,14 @@ import { useState } from "react";
 import useLogin from "../Login/hooks/useLogin";
 
 function NoLogin() {
-  const params = useParams();
+  let [searchParams] = useSearchParams();
   const { initUser } = useLogin();
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
 
-  const mesa = params?.mesa;
+  const mesa = searchParams.get("mesa");
 
   const handleFinishButtonPress = () => {
     initUser({ name, phone, mesa });

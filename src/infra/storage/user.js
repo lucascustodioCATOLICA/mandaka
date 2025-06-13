@@ -1,6 +1,6 @@
-const saveUserInfo = ({ name, phone, mesa, timestamp }) => {
+const saveUserInfo = ({ name, phone, mesa, userId, timestamp }) => {
   try {
-    const body = { name, phone, mesa, timestamp };
+    const body = { name, phone, mesa, timestamp, userId };
     const bodySerialized = JSON.stringify(body);
     localStorage.setItem("user", bodySerialized);
     return true;

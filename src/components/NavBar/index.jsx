@@ -14,6 +14,10 @@ const Navbar = () => {
     navigate("/carrinho");
   };
 
+  const handleBellPress = () => {
+    navigate("/cozinha");
+  };
+
   return (
     <div className={styles.margin}>
       <div className={styles.navbar_container}>
@@ -25,7 +29,7 @@ const Navbar = () => {
             <div className={styles.title}>
               <Logo />
             </div>
-            <div className={styles.right}>
+            <div className={styles.right} onClick={handleBellPress}>
               <Bell />
             </div>
           </div>

@@ -13,3 +13,11 @@
   padding: 24px 0px;
   overflow-y: scroll;
 }
+
+.no_products {
+  font-family: "Poppins";
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 120%;
+  text-align: center;
+}

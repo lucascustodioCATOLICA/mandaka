@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 .kitchenScreen {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(52, 12, 4, 1));;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(52, 12, 4, 1));
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -51,6 +51,8 @@
 .orderCard {
   display: flex;
   align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .orderImage {
@@ -74,9 +76,15 @@
   color: rgba(255, 255, 255, 1);
 }
 
-.orderInfo {
+.orderStatusText {
   font-size: 0.9em;
   color: rgba(255, 255, 255, 1);
+  margin-bottom: 3px;
+}
+
+.orderInfo {
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: 3px;
 }
 
@@ -99,7 +107,7 @@
   z-index: 2;
 }
 
-/* Cores e estilos para cada status, */
+/* Cores e estilos para cada status */
 .statusAnalyzing {
   background-color: rgba(233, 92, 24, 1);
 }
@@ -128,6 +136,7 @@
 }
 
 .disclaimer p {
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: 10px;
   line-height: 1.4;
 }
@@ -138,4 +147,80 @@
 
 .disclaimerHighlight {
   font-weight: bold;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.orderCard.selected {
+  background-color: rgba(229, 91, 19, 1); 
+  border-radius: 16px;
+  padding: 10px;
+  border-color: rgba(229, 91, 19, 1); 
+}
+
+.orderCard.selected .orderImage {
+  border-color: rgba(255, 255, 255, 1); 
+}
+
+.orderCard.selected .orderName,
+.orderCard.selected .orderStatusText,
+.orderCard.selected .orderInfo {
+  color: rgba(255, 255, 255, 1); 
+}
+
+.orderCard.selected .statusBarContainer {
+  background-color: rgba(255, 255, 255, 1); 
+  color: rgba(229, 91, 19, 1); 
+}
+
+.selectionFooter {
+  background-color: rgba(49, 10, 2, 1);
+  padding: 15px 20px 20px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(68, 68, 68, 1); 
+  animation: slideUp 0.3s ease-out;
+}
+
+.selectionFooter p {
+  margin: 0 0 15px 0;
+  font-family: "Poppins";
+  font-size: 1em;
+  color: rgba(255, 255, 255, 1);
+}
+
+.footerButtons {
+  display: flex;
+  gap: 15px;
+}
+
+.footerButtons button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(229, 91, 19, 1);
+  font-family: "Poppins";
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancelButton {
+  background-color: transparent;
+  color: rgba(229, 91, 19, 1);
+}
+
+.editButton {
+  background-color: rgba(229, 91, 19, 1); 
+  color: rgba(255, 255, 255, 1);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

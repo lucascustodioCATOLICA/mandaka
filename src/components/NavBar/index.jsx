@@ -7,7 +7,7 @@ import SubNavbar from "./components/SubNavbar";
 import styles from "./styles.module.css";
 import { useNavigate } from "react-router";
 
-const Navbar = () => {
+const Navbar = ({ onChangeSearchInput }) => {
   const navigate = useNavigate();
 
   const handleMenuPress = () => {
@@ -32,6 +32,7 @@ const Navbar = () => {
           <div className={styles.navbar_bottom}>
             <Search className={styles.icon} />
             <input
+              onChange={(e) => onChangeSearchInput(e.target.value)}
               className={styles.input}
               type="text"
               placeholder="Buscar produtos"

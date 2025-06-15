@@ -1,23 +1,49 @@
+import { useSearchParams } from "react-router";
 import styles from "./styles.module.css";
+import { useEffect } from "react";
 
 const SubNavbar = () => {
+  let [searchParams, setSearchParams] = useSearchParams();
+
+  const handleOnCategoryPress = (value) => {
+    setSearchParams({ cat: value });
+  };
+
+  useEffect(() => {
+    if (
+      searchParams.get("cat") === "todos" ||
+      searchParams.get("cat") === "entradas" ||
+      searchParams.get("cat") === "parrilla" ||
+      searchParams.get("cat") === "hamburguer"
+    ) {
+      const div = document.getElementById(searchParams.get("cat"));
+      div.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [searchParams]);
+
   return (
     <div className={styles.row}>
-      <div>
+      <div onClick={() => handleOnCategoryPress("todos")}>
         <div className={styles.category}>Todos</div>
-        <div className={styles.dot} />
+        {searchParams.get("cat") === "todos" && <div className={styles.dot} />}
       </div>
-      <div>
+      <div onClick={() => handleOnCategoryPress("entradas")}>
         <div className={styles.category}>Entradas</div>
-        <div className={styles.dot} />
+        {searchParams.get("cat") === "entradas" && (
+          <div className={styles.dot} />
+        )}
       </div>
-      <div>
+      <div onClick={() => handleOnCategoryPress("parrilla")}>
         <div className={styles.category}>Parrilla</div>
-        <div className={styles.dot} />
+        {searchParams.get("cat") === "parrilla" && (
+          <div className={styles.dot} />
+        )}
       </div>
-      <div>
+      <div onClick={() => handleOnCategoryPress("hamburguer")}>
         <div className={styles.category}>Hambúrguer</div>
-        <div className={styles.dot} />
+        {searchParams.get("cat") === "hamburguer" && (
+          <div className={styles.dot} />
+        )}
       </div>
     </div>
   );

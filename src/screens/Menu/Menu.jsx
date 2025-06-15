@@ -40,20 +40,24 @@ function Menu() {
       {pratos.length > 0 && (
         <>
           <HorizontalMenuItems
+            id="todos"
             list={classicos}
             onProductItemPress={handleProductItemPress}
           />
           <SectionMenuItems
+            id="entradas"
             title="Entradas"
             list={entrada}
             onProductItemPress={handleProductItemPress}
           />
           <SectionMenuItems
+            id="parrilla"
             title="Parrilla"
             list={parrilla}
             onProductItemPress={handleProductItemPress}
           />
           <SectionMenuItems
+            id="hamburguer"
             title="Hamburguer"
             list={hamburguer}
             onProductItemPress={handleProductItemPress}

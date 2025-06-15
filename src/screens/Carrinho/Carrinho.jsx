@@ -70,6 +70,9 @@ function Carrinho() {
     <div className={styles.background}>
       <DarkNavbar onGoBack={handleGoBack} />
       <div className={styles.products}>
+        {products?.length === 0 && (
+          <div className={styles.no_products}>Sem pedidos</div>
+        )}
         {products.map((item) => (
           <ProductItem
             id={item.id}

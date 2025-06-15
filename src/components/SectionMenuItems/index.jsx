@@ -1,8 +1,8 @@
 import styles from "./styles.module.css";
 
-const SectionMenuItems = ({ title, list, onProductItemPress }) => {
+const SectionMenuItems = ({ id, title, list, onProductItemPress }) => {
   return (
-    <div className={styles.container}>
+    <div id={id} className={styles.container}>
       <div className={styles.title}>{title}</div>
       {list.map((item) => (
         <div key={item.id} onClick={() => onProductItemPress(item)}>

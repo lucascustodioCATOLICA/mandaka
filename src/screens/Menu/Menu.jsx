@@ -84,11 +84,13 @@ function Menu() {
           )}
         </>
       )}
-      <Details
-        open={openDetails}
-        onClose={handleCloseBottomsheet}
-        selectedProduct={selectedProduct}
-      />
+      {openDetails && (
+        <Details
+          open={openDetails}
+          onClose={handleCloseBottomsheet}
+          selectedProduct={selectedProduct}
+        />
+      )}
     </>
   );
 }

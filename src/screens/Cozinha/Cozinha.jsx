@@ -1,45 +1,43 @@
-import React from 'react';
-import styles from './Cozinha.module.css';
-import Header from '../../components/Header/Header'; // Supondo que você tenha um Header
-import steakImage from '../../assets/steak.jpg'; // Coloque uma imagem nos seus assets
+import React, { useEffect, useState } from 'react'; 
+import { useNavigate } from 'react-router'; 
+import styles from './Cozinha.module.css'; 
 
-// Dados de exemplo que simulam os pedidos vindos do backend
-const kitchenOrders = [
-  { id: 1, name: 'STEAK DO COWBOY', status: 'Analisando pedido', number: '#04569341', time: '59min' },
-  { id: 2, name: 'STEAK DO COWBOY', status: 'Preparando...', number: '#04569341', time: '39min', progress: '60%' },
-  { id: 3, name: 'STEAK DO COWBOY', status: 'Levando para mesa.', number: '#04569341', time: 'Finalizado' },
-];
+import DarkNavbar from '../../components/DarkNavBar'; 
+import { ProductsStorage } from "../../infra/storage/products"; 
 
-// Componente para renderizar cada card de pedido
 const OrderCard = ({ order }) => {
   const getStatusClass = () => {
     switch (order.status) {
       case 'Analisando pedido':
-        return styles.solid;
+        return styles.statusAnalyzing;
       case 'Preparando...':
-        return styles.progress;
+        return styles.statusPreparing;
       case 'Levando para mesa.':
-        return styles.finalized;
+        return styles.statusDelivering;
       default:
         return '';
     }
   };
 
+  const displayStatus = order.status === 'Finalizado' ? 'Finalizado' : order.time;
+
   return (
     <div className={styles.orderCard}>
-      <img src={steakImage} alt={order.name} className={styles.orderImage} />
+      <img src={order.product.imageUrl || steakImage} alt={order.product.name} className={styles.orderImage} />
       <div className={styles.orderDetails}>
-        <h3 className={styles.orderName}>{order.name}</h3>
-        <p className={styles.orderStatus}>Status: {order.status}</p>
-        <p className={styles.orderNumber}>N.º do pedido: {order.number}</p>
-        <div className={`${styles.statusBar} ${getStatusClass()}`}>
+        <h3 className={styles.orderName}>{order.product.name}</h3> 
+        <p className={styles.orderInfo}>Status: {order.status}</p>
+        <p className={styles.orderInfo}>N.º do pedido: #{order.id}</p> 
+        
+        <div className={`${styles.statusBarContainer} ${getStatusClass()}`}>
           {order.status === 'Preparando...' ? (
             <>
-              <div className={styles.progressBar} style={{ width: order.progress }}></div>
-              <span>{order.time}</span>
+              {/* Barra de progresso não funcional */}
+              <div className={styles.progressBar} style={{ width: '60%' }}></div> 
+              <span className={styles.statusTime}>{displayStatus}</span>
             </>
           ) : (
-            order.time
+            <span className={styles.statusTime}>{displayStatus}</span>
           )}
         </div>
       </div>
@@ -47,21 +45,43 @@ const OrderCard = ({ order }) => {
   );
 };
 
-// Componente principal da tela da Cozinha
-const Cozinha = () => {
+function Cozinha() { 
+  const navigate = useNavigate();
+  const [orders, setOrders] = useState([]); 
+
+  const handleGoBack = () => {
+    navigate(-1); 
+  };
+
+  useEffect(() => {
+    const productsFromStorage = ProductsStorage.getProductsFromCarrinho();
+    
+    const initialOrders = productsFromStorage.map(item => ({
+      ...item,
+      status: 'Analisando pedido', 
+      time: '59min' 
+    }));
+    setOrders(initialOrders);
+  }, []);
+
   return (
     <div className={styles.kitchenScreen}>
-      <Header />
+      <DarkNavbar onGoBack={handleGoBack} />
+
       <main className={styles.kitchenContent}>
-        <div className={styles.titleSection}>
-          <h2>COZINHA</h2>
-          <p>Seu pedido tá indo pra brasa!</p>
+        <div className={styles.mainTitleSection}>
+          <h2 className={styles.mainTitle}>COZINHA</h2>
+          <p className={styles.mainSubtitle}>Seu pedido tá indo pra brasa!</p>
         </div>
 
         <div className={styles.ordersList}>
-          {kitchenOrders.map((order) => (
-            <OrderCard key={order.id} order={order} />
-          ))}
+          {orders.length > 0 ? (
+            orders.map((order) => (
+              <OrderCard key={order.id} order={order} />
+            ))
+          ) : (
+            <p className={styles.emptyKitchenMessage}>Nenhum pedido no momento. Adicione itens ao carrinho!</p>
+          )}
         </div>
       </main>
 
@@ -70,11 +90,11 @@ const Cozinha = () => {
           Você pode editar ou cancelar seu pedido enquanto ele ainda tá na fase de preparo.
         </p>
         <p>
-          Caso seu pedido já estiver finalizado e você quiser cancelar, será cobrada uma taxa de R$50,00 — pelo dispedício e tempo
+          Caso seu pedido já estiver finalizado e você quiser cancelar, será cobrada uma taxa de <span className={styles.disclaimerHighlight}>R$50,00</span> — pelo dispedício e tempo
         </p>
       </footer>
     </div>
   );
-};
+}
 
 export default Cozinha;

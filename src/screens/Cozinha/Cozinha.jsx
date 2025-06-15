@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react'; 
-import { useNavigate } from 'react-router'; 
-import styles from './Cozinha.module.css'; 
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
+import styles from './Cozinha.module.css';
 
-import DarkNavbar from '../../components/DarkNavBar'; 
-import { ProductsStorage } from "../../infra/storage/products"; 
+import DarkNavbar from '../../components/DarkNavBar';
+import { ProductsStorage } from "../../infra/storage/products";
 
-const OrderCard = ({ order }) => {
+const OrderCard = ({ order, isSelected, onClick }) => {
+  const cardContainerClasses = `${styles.orderCard} ${isSelected ? styles.selected : ''}`;
+
   const getStatusClass = () => {
     switch (order.status) {
       case 'Analisando pedido':
@@ -22,18 +24,17 @@ const OrderCard = ({ order }) => {
   const displayStatus = order.status === 'Finalizado' ? 'Finalizado' : order.time;
 
   return (
-    <div className={styles.orderCard}>
-      <img src={order.product.imageUrl || steakImage} alt={order.product.name} className={styles.orderImage} />
+    <div className={cardContainerClasses} onClick={() => onClick(order.id)}>
+      <img src={order.product.imageUrl} alt={order.product.name} className={styles.orderImage} />
       <div className={styles.orderDetails}>
-        <h3 className={styles.orderName}>{order.product.name}</h3> 
-        <p className={styles.orderInfo}>Status: {order.status}</p>
-        <p className={styles.orderInfo}>N.º do pedido: #{order.id}</p> 
+        <h3 className={styles.orderName}>{order.product.name}</h3>
+        <p className={styles.orderStatusText}>Status: {order.status}</p>
+        <p className={styles.orderInfo}>N.º do pedido: #{order.id}</p>
         
         <div className={`${styles.statusBarContainer} ${getStatusClass()}`}>
           {order.status === 'Preparando...' ? (
             <>
-              {/* Barra de progresso não funcional */}
-              <div className={styles.progressBar} style={{ width: '60%' }}></div> 
+              <div className={styles.progressBar} style={{ width: '60%' }}></div>
               <span className={styles.statusTime}>{displayStatus}</span>
             </>
           ) : (
@@ -45,12 +46,45 @@ const OrderCard = ({ order }) => {
   );
 };
 
-function Cozinha() { 
+const SelectionFooter = ({ onCancel, onEdit }) => {
+  return (
+    <div className={styles.selectionFooter}>
+      <p>1 pedido selecionado</p>
+      <div className={styles.footerButtons}>
+        <button onClick={onCancel} className={styles.cancelButton}>Cancelar</button>
+        <button onClick={onEdit} className={styles.editButton}>Editar</button>
+      </div>
+    </div>
+  );
+};
+
+
+function Cozinha() {
   const navigate = useNavigate();
-  const [orders, setOrders] = useState([]); 
+  const [orders, setOrders] = useState([]);
+  
+  const [selectedOrderId, setSelectedOrderId] = useState(null);
 
   const handleGoBack = () => {
-    navigate(-1); 
+    navigate(-1);
+  };
+
+  const handleOrderClick = (orderId) => {
+    if (selectedOrderId === orderId) {
+      setSelectedOrderId(null);
+    } else {
+      setSelectedOrderId(orderId);
+    }
+  };
+
+  const handleCancel = () => {
+    console.log("Ação de Cancelar");
+    setSelectedOrderId(null);
+  };
+
+  const handleEdit = () => {
+    console.log("Ação de Editar");
+    setSelectedOrderId(null);
   };
 
   useEffect(() => {
@@ -77,13 +111,20 @@ function Cozinha() {
         <div className={styles.ordersList}>
           {orders.length > 0 ? (
             orders.map((order) => (
-              <OrderCard key={order.id} order={order} />
+              <OrderCard 
+                key={order.id} 
+                order={order} 
+                isSelected={selectedOrderId === order.id}
+                onClick={handleOrderClick}
+              />
             ))
           ) : (
             <p className={styles.emptyKitchenMessage}>Nenhum pedido no momento. Adicione itens ao carrinho!</p>
           )}
         </div>
       </main>
+      
+      {selectedOrderId && <SelectionFooter onCancel={handleCancel} onEdit={handleEdit} />}
 
       <footer className={styles.disclaimer}>
         <p>

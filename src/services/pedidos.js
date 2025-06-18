@@ -1,4 +1,4 @@
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 
 import { firebaseFirestore } from "../infra/firebase-config";
 
@@ -6,12 +6,14 @@ const addPedidos = async (item) => {
   await addDoc(collection(firebaseFirestore, "pedidos"), item);
 };
 
-const getPedidos = async () => {
+const getPedidosByUserId = async (userId) => {
   let pedidos = [];
   try {
-    const querySnapshot = await getDocs(
-      collection(firebaseFirestore, "pedidos")
+    const q = query(
+      collection(firebaseFirestore, "pedidos"),
+      where("userId", "==", userId)
     );
+    const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       pedidos.push({ id: doc.id, ...doc.data() });
     });
@@ -21,4 +23,4 @@ const getPedidos = async () => {
   return pedidos;
 };
 
-export const PedidosService = { getPedidos, addPedidos };
+export const PedidosService = { getPedidosByUserId, addPedidos };

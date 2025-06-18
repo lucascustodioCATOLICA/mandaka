@@ -17,7 +17,7 @@ const SubNavbar = () => {
       searchParams.get("cat") === "hamburguer"
     ) {
       const div = document.getElementById(searchParams.get("cat"));
-      div.scrollIntoView({ behavior: "smooth", block: "center" });
+      div?.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   }, [searchParams]);
 

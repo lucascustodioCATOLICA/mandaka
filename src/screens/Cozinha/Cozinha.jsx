@@ -28,7 +28,7 @@ const OrderCard = ({ order, isSelected, onClick }) => {
   const displayStatus =
     order.status === "Finalizado" ? "Finalizado" : order.time;
   return (
-    <div className={cardContainerClasses} onClick={() => onClick(order.id)}>
+    <div className={cardContainerClasses} onClick={() => onClick(order.docId)}>
       <img
         src={order.product.imageUrl}
         alt={order.product.name}
@@ -92,13 +92,18 @@ function Cozinha() {
     }
   };
 
-  const handleCancel = () => {
-    setSelectedOrderId(null);
+  const handleCancel = async () => {
+    PedidosService.deletePedidoById(selectedOrderId).then(() => {
+      setOrders((prev) =>
+        prev.filter((item) => item.docId !== selectedOrderId)
+      );
+      setSelectedOrderId(null);
+    });
   };
 
   const handleEdit = () => {
     if (!selectedOrderId) return;
-    const orderToEdit = orders.find((order) => order.id === selectedOrderId);
+    const orderToEdit = orders.find((order) => order.docId === selectedOrderId);
     if (orderToEdit) {
       setProductToEdit(orderToEdit.product);
       setIsDetailsOpen(true);
@@ -150,9 +155,9 @@ function Cozinha() {
           {orders.length > 0 ? (
             orders.map((order) => (
               <OrderCard
-                key={order.id}
+                key={order.docId}
                 order={order}
-                isSelected={selectedOrderId === order.id}
+                isSelected={selectedOrderId === order.docId}
                 onClick={handleOrderClick}
               />
             ))

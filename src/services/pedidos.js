@@ -1,4 +1,12 @@
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 
 import { firebaseFirestore } from "../infra/firebase-config";
 
@@ -15,12 +23,22 @@ const getPedidosByUserId = async (userId) => {
     );
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      pedidos.push({ id: doc.id, ...doc.data() });
+      pedidos.push({ docId: doc.id, ...doc.data() });
     });
   } catch {
     return;
   }
+  console.log(pedidos);
   return pedidos;
 };
 
-export const PedidosService = { getPedidosByUserId, addPedidos };
+const deletePedidoById = async (id) => {
+  const docRef = doc(firebaseFirestore, "pedidos", id);
+  await deleteDoc(docRef);
+};
+
+export const PedidosService = {
+  getPedidosByUserId,
+  addPedidos,
+  deletePedidoById,
+};

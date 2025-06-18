@@ -3,10 +3,9 @@ import { useNavigate } from "react-router";
 import styles from "./Cozinha.module.css";
 
 import DarkNavbar from "../../components/DarkNavBar";
-import Details from "../../components/Details";
-import { ProductsStorage } from "../../infra/storage/products";
 import { PedidosService } from "../../services/pedidos";
 import useLogin from "../Login/hooks/useLogin";
+import DetailsInCozinha from "../../components/DetailsInCozinha";
 
 //Lógica de status place holder
 const OrderCard = ({ order, isSelected, onClick }) => {
@@ -105,7 +104,7 @@ function Cozinha() {
     if (!selectedOrderId) return;
     const orderToEdit = orders.find((order) => order.docId === selectedOrderId);
     if (orderToEdit) {
-      setProductToEdit(orderToEdit.product);
+      setProductToEdit(orderToEdit);
       setIsDetailsOpen(true);
       setSelectedOrderId(null);
     }
@@ -186,7 +185,7 @@ function Cozinha() {
         </p>
       </footer>
 
-      <Details
+      <DetailsInCozinha
         open={isDetailsOpen}
         onClose={handleCloseDetails}
         selectedProduct={productToEdit}

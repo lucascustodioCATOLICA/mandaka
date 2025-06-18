@@ -7,6 +7,7 @@ import Cadastro from "../../screens/Cadastro/Cadastro";
 import Login from "../../screens/Login/Login";
 import NoLogin from "../../screens/NoLogin/NoLogin";
 import Menu from "../../screens/Menu/Menu";
+import Cozinha from "../../screens/Cozinha/Cozinha";
 
 const AppRouter = () => {
   return (
@@ -19,6 +20,7 @@ const AppRouter = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/no-login" element={<NoLogin />} />
         <Route path="/pagamento" element={<PaymentMethods />} />
+        <Route path="/cozinha" element={<Cozinha />} /> 
       </Routes>
     </HashRouter>
   );

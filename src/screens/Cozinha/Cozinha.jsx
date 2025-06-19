@@ -115,30 +115,35 @@ function Cozinha() {
     setProductToEdit(null);
   };
 
-  useEffect(() => {
-    const handlePedidos = async () => {
-      try {
-        const user = getUser();
-        if (!user?.userId) {
-          return;
-        }
-        const pedidos = await PedidosService.getPedidosByUserId(user.userId);
-        if (Array.isArray(pedidos)) {
-          const initialOrders = pedidos.map((item) => ({
-            ...item,
-            status: "Analisando pedido",
-            time: "59min",
-          }));
-          setOrders(initialOrders);
-        } else {
-          setOrders([]);
-        }
-      } catch (error) {
-        console.error("Erro ao carregar produtos do carrinho:", error);
+  const handleGetPedidos = async () => {
+    try {
+      const user = getUser();
+      if (!user?.userId) {
+        return;
+      }
+      const pedidos = await PedidosService.getPedidosByUserId(user.userId);
+      if (Array.isArray(pedidos)) {
+        const initialOrders = pedidos.map((item) => ({
+          ...item,
+          status: "Analisando pedido",
+          time: "59min",
+        }));
+        setOrders(initialOrders);
+      } else {
         setOrders([]);
       }
-    };
-    handlePedidos();
+    } catch (error) {
+      console.error("Erro ao carregar produtos do carrinho:", error);
+      setOrders([]);
+    }
+  };
+
+  const handleRefreshPratos = () => {
+    handleGetPedidos();
+  };
+
+  useEffect(() => {
+    handleGetPedidos();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -189,6 +194,7 @@ function Cozinha() {
         open={isDetailsOpen}
         onClose={handleCloseDetails}
         selectedProduct={productToEdit}
+        onEditPrato={handleRefreshPratos}
       />
     </div>
   );

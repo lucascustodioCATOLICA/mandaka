@@ -17,8 +17,9 @@ import Input from "../Input";
 import { formatMoney } from "../../helpers/format-money";
 import { ProductsStorage } from "../../infra/storage/products";
 import useLogin from "../../screens/Login/hooks/useLogin";
+import { PedidosService } from "../../services/pedidos";
 
-const DetailsInCozinha = ({ open, onClose, selectedProduct }) => {
+const DetailsInCozinha = ({ open, onClose, onEditPrato, selectedProduct }) => {
   const { getHasUserLogged } = useLogin();
 
   const [count, setCount] = useState();
@@ -58,7 +59,14 @@ const DetailsInCozinha = ({ open, onClose, selectedProduct }) => {
     });
   };
 
-  const handleAddButtonPress = () => {
+  const handleEditButtonPress = async () => {
+    await PedidosService.editPedidoById(selectedProduct.docId, {
+      ...selectedProduct,
+      count,
+      price: count * selectedProduct.product.price,
+      userObservations: userObservations ?? "",
+    });
+    onEditPrato();
     onClose();
   };
 
@@ -109,9 +117,9 @@ const DetailsInCozinha = ({ open, onClose, selectedProduct }) => {
               <Plus className={styles.enabled_icon} />
             </div>
           </div>
-          <Button disabled={!hasUserLogged} onPress={handleAddButtonPress}>
+          <Button disabled={!hasUserLogged} onPress={handleEditButtonPress}>
             <div className={styles.button_text}>
-              <div>Adicionar </div>
+              <div>Editar</div>
               <div>R${formatMoney(selectedProduct.product.price)}</div>
             </div>
           </Button>

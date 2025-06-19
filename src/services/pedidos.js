@@ -5,6 +5,7 @@ import {
   doc,
   getDocs,
   query,
+  updateDoc,
   where,
 } from "firebase/firestore";
 
@@ -28,7 +29,6 @@ const getPedidosByUserId = async (userId) => {
   } catch {
     return;
   }
-  console.log(pedidos);
   return pedidos;
 };
 
@@ -37,8 +37,14 @@ const deletePedidoById = async (id) => {
   await deleteDoc(docRef);
 };
 
+const editPedidoById = async (id, data) => {
+  const docRef = doc(firebaseFirestore, "pedidos", id);
+  await updateDoc(docRef, data);
+};
+
 export const PedidosService = {
   getPedidosByUserId,
   addPedidos,
   deletePedidoById,
+  editPedidoById,
 };

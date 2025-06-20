@@ -15,10 +15,10 @@ body::before {
   right: 0px;
   bottom: 0px;
   background-image: url("/images/background.png");
-  background-size: cover;
+  /* background-size: cover;
   background-repeat: repeat;
   filter: blur(250px);
-  z-index: -1;
+  z-index: -1; */
 }
 
 div,
@@ -37,7 +37,7 @@ p {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #0B0201;
+  background: #0b0201;
 }
 
 /* Handle */

@@ -44,17 +44,14 @@ function Carrinho() {
 
   const handlePlusButtonPress = (id) => {
     setProducts((prev) => {
-      console.log(prev);
       const newProducts = prev.map((item) => {
         if (item.id !== id) {
           return item;
         }
-        console.log(item);
-        const newCount = item.count++;
+        const newCount = item.count + 1;
         const newPrice = newCount * item.product.price;
         return { ...item, count: newCount, price: newPrice };
       });
-      console.log(newProducts);
       ProductsStorage.updateProducts(newProducts);
       return newProducts;
     });

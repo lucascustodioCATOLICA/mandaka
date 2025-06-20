@@ -29,7 +29,7 @@ function Carrinho() {
         if (item.id !== id) {
           return item;
         }
-        const newCount = item.count--;
+        const newCount = item.count - 1;
         if (newCount === 0) {
           return { ...item, removed: true };
         }
